@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -20,22 +19,6 @@ class BowlingGameTest {
             bowlingGame.addFrame(throwValue, throwValue);
         }
         Assertions.assertEquals(20 * throwValue, bowlingGame.getGameScore());
-    }
-
-    @Test
-    void allMiss() {
-        for (int frameNumber = 0; frameNumber < 10; frameNumber++) {
-            bowlingGame.addFrame(0, 0);
-        }
-        Assertions.assertEquals(0, bowlingGame.getGameScore());
-    }
-
-    @Test
-    void allOnes() {
-        for (int frameNumber = 0; frameNumber < 10; frameNumber++) {
-            bowlingGame.addFrame(1, 1);
-        }
-        Assertions.assertEquals(20, bowlingGame.getGameScore());
     }
 
 }
