@@ -5,7 +5,7 @@ public class BowlingGame {
     private ArrayList<Integer> throwList;
 
     public BowlingGame() {
-        throwList = new ArrayList<Integer>();
+        throwList = new ArrayList<>();
     }
 
     public void addFrame(int firstThrow, int secondThrow) {
