@@ -2,21 +2,20 @@ import java.util.ArrayList;
 
 public class BowlingGame {
 
-    private ArrayList<Integer> throwList;
+    private ArrayList<Frame> frameList;
 
     public BowlingGame() {
-        throwList = new ArrayList<>();
+        frameList = new ArrayList<>();
     }
 
     public void addFrame(int firstThrow, int secondThrow) {
-        throwList.add(firstThrow);
-        throwList.add(secondThrow);
+        frameList.add(new Frame(firstThrow, secondThrow));
     }
 
     public int getGameScore() {
         int totalScore = 0;
-        for (Integer throwScore : throwList) {
-            totalScore += throwScore;
+        for (Frame frame : frameList) {
+            totalScore += frame.getBaseScore();
         }
         return totalScore;
     }
