@@ -36,8 +36,10 @@ public class BowlingGame {
 
     public int getGameScore() {
         int totalScore = 0;
+        frameList.subList(10, getFrameListSize()).clear();
         for (Frame frame : frameList) {
             totalScore += frame.getFinalScore();
+            System.out.println(frame.getFinalScore());
         }
         return totalScore;
     }
