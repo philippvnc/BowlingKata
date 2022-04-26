@@ -4,6 +4,7 @@ public class StrikeFrame extends SpareFrame{
 
     public StrikeFrame(int firstThrow, int secondThrow) {
         super(firstThrow, secondThrow);
+        veryNextFrame = new OpenFrame(0,0);
     }
 
     private int getSumOfNextTwoThrows(){

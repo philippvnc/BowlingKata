@@ -4,14 +4,11 @@ public class SpareFrame extends OpenFrame {
 
     public SpareFrame(int firstThrow, int secondThrow) {
         super(firstThrow, secondThrow);
+        nextFrame = new OpenFrame(0,0);
     }
 
     public int getFinalScore(){
-        if(nextFrame != null){
-            return getBaseScore() + nextFrame.getFirstThrow();
-        } else {
-            return getBaseScore();
-        }
+        return getBaseScore() + nextFrame.getFirstThrow();
     }
 
     public void setNextFrame(Frame nextFrame) {
