@@ -26,6 +26,14 @@ public class BowlingGame {
         }
     }
 
+    public boolean isSecondLatestAddedFrameStrike(){
+        if (frameList.size() <= 1) {
+            return false;
+        } else {
+            return (frameList.get(getFrameListSize()-2) instanceof StrikeFrame);
+        }
+    }
+
     public int getGameScore() {
         int totalScore = 0;
         for (Frame frame : frameList) {

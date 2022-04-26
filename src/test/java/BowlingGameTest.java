@@ -34,7 +34,20 @@ class BowlingGameTest {
         bowlingGame.addFrame(4, 6);
         Assertions.assertTrue(bowlingGame.isLatestAddedFrameSpare());
         bowlingGame.addFrame(10, 0);
-        Assertions.assertFalse(bowlingGame.isLatestAddedFrameSpare());
+        Assertions.assertTrue(bowlingGame.isLatestAddedFrameSpare());
+    }
+
+    @Test
+    void shouldDetectSecondLatestAddedFrameStrike() {
+        Assertions.assertFalse(bowlingGame.isSecondLatestAddedFrameStrike());
+        bowlingGame.addFrame(8, 2);
+        Assertions.assertFalse(bowlingGame.isSecondLatestAddedFrameStrike());
+        bowlingGame.addFrame(10, 0);
+        Assertions.assertFalse(bowlingGame.isSecondLatestAddedFrameStrike());
+        bowlingGame.addFrame(4, 6);
+        Assertions.assertTrue(bowlingGame.isSecondLatestAddedFrameStrike());
+        bowlingGame.addFrame(10, 0);
+        Assertions.assertFalse(bowlingGame.isSecondLatestAddedFrameStrike());
     }
 
     @ParameterizedTest
