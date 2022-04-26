@@ -13,16 +13,16 @@ public class BowlingGame {
     public void addFrame(int firstThrow, int secondThrow) {
         Frame frameToAdd = frameFactory.getFrame(firstThrow, secondThrow);
         if(isLatestAddedFrameSpare()){
-            ((SpareFrame) frameList.get(frameList.size()-1)).setNextFrame(frameToAdd);
+            ((SpareFrame) frameList.get(getFrameListSize()-1)).setNextFrame(frameToAdd);
         }
         frameList.add(frameToAdd);
     }
 
-    private boolean isLatestAddedFrameSpare(){
+    public boolean isLatestAddedFrameSpare(){
         if (frameList.size() == 0) {
             return false;
         } else {
-            return (frameList.get(frameList.size()-1) instanceof SpareFrame);
+            return (frameList.get(getFrameListSize()-1) instanceof SpareFrame);
         }
     }
 
@@ -32,5 +32,9 @@ public class BowlingGame {
             totalScore += frame.getFinalScore();
         }
         return totalScore;
+    }
+
+    public int getFrameListSize(){
+        return frameList.size();
     }
 }
