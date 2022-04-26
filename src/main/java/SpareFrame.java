@@ -7,6 +7,14 @@ public class SpareFrame extends OpenFrame {
     }
 
     public int getFinalScore(){
-        return getBaseScore() + nextFrame.getBaseScore();
+        if(nextFrame != null){
+            return getBaseScore() + nextFrame.getBaseScore();
+        } else {
+            return getBaseScore();
+        }
+    }
+
+    public void setNextFrame(Frame nextFrame) {
+        this.nextFrame = nextFrame;
     }
 }

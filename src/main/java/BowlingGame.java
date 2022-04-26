@@ -3,13 +3,27 @@ import java.util.ArrayList;
 public class BowlingGame {
 
     private ArrayList<Frame> frameList;
+    private FrameFactory frameFactory;
 
     public BowlingGame() {
         frameList = new ArrayList<>();
+        frameFactory = new FrameFactory();
     }
 
     public void addFrame(int firstThrow, int secondThrow) {
-        frameList.add(new OpenFrame(firstThrow, secondThrow));
+        Frame frameToAdd = frameFactory.getFrame(firstThrow, secondThrow);
+        if(isLatestAddedFrameSpare()){
+            ((SpareFrame) frameList.get(frameList.size()-1)).setNextFrame(frameToAdd);
+        }
+        frameList.add(frameToAdd);
+    }
+
+    private boolean isLatestAddedFrameSpare(){
+        if (frameList.size() == 0) {
+            return false;
+        } else {
+            return (frameList.get(frameList.size()-1) instanceof SpareFrame);
+        }
     }
 
     public int getGameScore() {
