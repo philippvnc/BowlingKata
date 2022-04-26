@@ -1,12 +1,6 @@
-public class Frame {
+public interface Frame {
 
-    private int baseScore;
+    public int getBaseScore();
 
-    public Frame(int firstThrow, int secondThrow){
-        baseScore = firstThrow + secondThrow;
-    }
-
-    public int getBaseScore() {
-        return baseScore;
-    }
+    public int getFinalScore();
 }

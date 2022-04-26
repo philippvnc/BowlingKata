@@ -9,13 +9,13 @@ public class BowlingGame {
     }
 
     public void addFrame(int firstThrow, int secondThrow) {
-        frameList.add(new Frame(firstThrow, secondThrow));
+        frameList.add(new OpenFrame(firstThrow, secondThrow));
     }
 
     public int getGameScore() {
         int totalScore = 0;
         for (Frame frame : frameList) {
-            totalScore += frame.getBaseScore();
+            totalScore += frame.getFinalScore();
         }
         return totalScore;
     }
