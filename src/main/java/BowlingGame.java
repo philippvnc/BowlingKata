@@ -15,6 +15,9 @@ public class BowlingGame {
         if(isLatestAddedFrameSpare()){
             ((SpareFrame) frameList.get(getFrameListSize()-1)).setNextFrame(frameToAdd);
         }
+        if(isSecondLatestAddedFrameStrike()){
+            ((StrikeFrame) frameList.get(getFrameListSize()-2)).setVeryNextFrame(frameToAdd);
+        }
         frameList.add(frameToAdd);
     }
 
