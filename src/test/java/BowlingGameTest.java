@@ -137,4 +137,45 @@ class BowlingGameTest {
         Assertions.assertEquals(118, bowlingGame.getGameScore());
     }
 
+    @Test
+    public void shouldParseAndCalculateStrikeFrames() {
+        bowlingGame = new BowlingGame("X X X X X X X X X X X X");
+        Assertions.assertEquals(300, bowlingGame.getGameScore());
+    }
+
+    @Test
+    public void shouldParseAndCalculateSpareFrames() {
+        bowlingGame = new BowlingGame("9- 9- 9- 9- 9- 9- 9- 9- 9- 9-");
+        Assertions.assertEquals(90, bowlingGame.getGameScore());
+    }
+
+    @Test
+    public void shouldParseAndCalculateOpenFrames() {
+        bowlingGame = new BowlingGame("5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5");
+        Assertions.assertEquals(150, bowlingGame.getGameScore());
+    }
+
+    @Test
+    public void shouldParseAndCalculateMissFrames() {
+        bowlingGame = new BowlingGame("-- -- -- -- -- -- -- -- -- --");
+        Assertions.assertEquals(0, bowlingGame.getGameScore());
+    }
+
+    @Test
+    public void shouldParseAndCalculateMixedFramesOne() {
+        bowlingGame = new BowlingGame("9- 9- 9- 9- 9- 5/ 5/ 5/ 5/ 5/5");
+        Assertions.assertEquals(120, bowlingGame.getGameScore());
+    }
+
+    @Test
+    public void shouldParseAndCalculateMixedFramesTwo() {
+        bowlingGame = new BowlingGame("X X X X X -- -- -- 5/ 5/5");
+        Assertions.assertEquals(150, bowlingGame.getGameScore());
+    }
+
+    @Test
+    public void shouldParseAndCalculateMixedFramesThree() {
+        bowlingGame = new BowlingGame("X 5/ X 9/ 32 4/ X 9/ 02 8/9");
+        Assertions.assertEquals(149, bowlingGame.getGameScore());
+    }
 }
