@@ -60,6 +60,15 @@ class BowlingGameTest {
     }
 
     @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
+    public void openFramesAllSameThrowsThenMiss(int throwValue) {
+        for (int frameNumber = 0; frameNumber < 10; frameNumber++) {
+            bowlingGame.addFrame(throwValue, 0);
+        }
+        Assertions.assertEquals(10 * throwValue, bowlingGame.getGameScore());
+    }
+
+    @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3, 4})
     public void spareAndOpenFramesAllSameThrows(int throwValue) {
         bowlingGame.addFrame(2, 8);
@@ -95,6 +104,37 @@ class BowlingGameTest {
             bowlingGame.addFrame(0, 0);
         }
         Assertions.assertEquals(0, bowlingGame.getGameScore());
+    }
+
+    @Test
+    public void mixedFramesOne() {
+        bowlingGame.addFrame(0, 0);
+        bowlingGame.addFrame(1, 2);
+        bowlingGame.addFrame(3, 4);
+        bowlingGame.addFrame(10, 0);
+        bowlingGame.addFrame(5, 5);
+        bowlingGame.addFrame(7, 2);
+        bowlingGame.addFrame(0, 0);
+        bowlingGame.addFrame(10, 0);
+        bowlingGame.addFrame(10, 0);
+        bowlingGame.addFrame(8, 2);
+        bowlingGame.addFrame(10, 0);
+        Assertions.assertEquals(124, bowlingGame.getGameScore());
+    }
+
+    @Test
+    public void mixedFramesTwo() {
+        bowlingGame.addFrame(10, 0);
+        bowlingGame.addFrame(1, 2);
+        bowlingGame.addFrame(6, 4);
+        bowlingGame.addFrame(10, 0);
+        bowlingGame.addFrame(5, 2);
+        bowlingGame.addFrame(10, 0);
+        bowlingGame.addFrame(0, 0);
+        bowlingGame.addFrame(8, 2);
+        bowlingGame.addFrame(10, 0);
+        bowlingGame.addFrame(8, 1);
+        Assertions.assertEquals(118, bowlingGame.getGameScore());
     }
 
 }

@@ -1,10 +1,10 @@
-public class OpenFrame implements Frame{
+public class OpenFrame implements Frame {
 
     private int firstThrow;
     private int secondThrow;
     private int baseScore;
 
-    public OpenFrame(int firstThrow, int secondThrow){
+    public OpenFrame(int firstThrow, int secondThrow) {
         this.firstThrow = firstThrow;
         this.secondThrow = secondThrow;
         baseScore = firstThrow + secondThrow;
