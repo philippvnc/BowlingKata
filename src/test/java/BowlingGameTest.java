@@ -22,4 +22,14 @@ class BowlingGameTest {
         Assertions.assertEquals(20 * throwValue, bowlingGame.getGameScore());
     }
 
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
+    public void spareAndOpenFramesAllSameThrows(int throwValue) {
+        bowlingGame.addFrame(2, 8);
+        for (int frameNumber = 0; frameNumber < 9; frameNumber++) {
+            bowlingGame.addFrame(throwValue, throwValue);
+        }
+        Assertions.assertEquals(20 * throwValue + 10, bowlingGame.getGameScore());
+    }
+
 }
