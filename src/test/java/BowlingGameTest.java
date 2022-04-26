@@ -66,7 +66,35 @@ class BowlingGameTest {
         for (int frameNumber = 0; frameNumber < 9; frameNumber++) {
             bowlingGame.addFrame(throwValue, throwValue);
         }
-        Assertions.assertEquals(20 * throwValue + 10, bowlingGame.getGameScore());
+        Assertions.assertEquals(10 + 19 * throwValue, bowlingGame.getGameScore());
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9})
+    public void spareFramesAllSameThrows(int throwValue) {
+        for (int frameNumber = 0; frameNumber < 10; frameNumber++) {
+            bowlingGame.addFrame(throwValue, 10 - throwValue);
+        }
+        bowlingGame.addFrame(throwValue, 0);
+        Assertions.assertEquals(100 + 10 * throwValue, bowlingGame.getGameScore());
+    }
+
+    @Test
+    public void strikeFrames() {
+        for (int frameNumber = 0; frameNumber < 10; frameNumber++) {
+            bowlingGame.addFrame(10, 0);
+        }
+        bowlingGame.addFrame(10, 0);
+        bowlingGame.addFrame(10, 0);
+        Assertions.assertEquals(300, bowlingGame.getGameScore());
+    }
+
+    @Test
+    public void missFrames() {
+        for (int frameNumber = 0; frameNumber < 10; frameNumber++) {
+            bowlingGame.addFrame(0, 0);
+        }
+        Assertions.assertEquals(0, bowlingGame.getGameScore());
     }
 
 }

@@ -13,6 +13,6 @@ class StrikeFrameTest {
         OpenFrame veryNextFrame = new OpenFrame(2, 3);
         strikeFrame.setNextFrame(nextFrame);
         strikeFrame.setVeryNextFrame(veryNextFrame);
-        Assertions.assertEquals(23, strikeFrame.getFinalScore());
+        Assertions.assertEquals(18, strikeFrame.getFinalScore());
     }
 }
