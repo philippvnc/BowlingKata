@@ -6,12 +6,16 @@ public class StrikeFrame extends SpareFrame{
         super(firstThrow, secondThrow);
     }
 
-    public int getFinalScore(){
-        if(veryNextFrame != null){
-            return super.getFinalScore() + veryNextFrame.getBaseScore();
+    private int getSumOfNextTwoThrows(){
+        if(nextFrame instanceof StrikeFrame){
+            return nextFrame.getBaseScore() + veryNextFrame.getFirstThrow();
         } else {
-            return super.getFinalScore();
+            return nextFrame.getBaseScore();
         }
+    }
+
+    public int getFinalScore(){
+        return getBaseScore() + getSumOfNextTwoThrows();
     }
 
     public void setVeryNextFrame(Frame veryNextFrame) {

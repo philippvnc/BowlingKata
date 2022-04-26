@@ -1,6 +1,6 @@
 public class SpareFrame extends OpenFrame {
 
-    private Frame nextFrame;
+    protected Frame nextFrame;
 
     public SpareFrame(int firstThrow, int secondThrow) {
         super(firstThrow, secondThrow);
@@ -8,7 +8,7 @@ public class SpareFrame extends OpenFrame {
 
     public int getFinalScore(){
         if(nextFrame != null){
-            return getBaseScore() + nextFrame.getBaseScore();
+            return getBaseScore() + nextFrame.getFirstThrow();
         } else {
             return getBaseScore();
         }
