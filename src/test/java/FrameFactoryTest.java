@@ -24,4 +24,10 @@ class FrameFactoryTest {
         Frame frame = frameFactory.getFrame(4, 6);
         Assertions.assertTrue(frame instanceof SpareFrame);
     }
+
+    @Test
+    void shouldGetStrikeFrame() {
+        Frame frame = frameFactory.getFrame(10, 0);
+        Assertions.assertTrue(frame instanceof StrikeFrame);
+    }
 }
