@@ -50,27 +50,17 @@ public class BowlingGame {
         frameList.add(frameFactory.getFrame(firstThrow, secondThrow));
     }
 
-    public void linkFrames() {
+    public int getGameScore() {
         addFrame(0, 0);
+        int totalScore = 0;
         for (int frameNumber = 0; frameNumber < Math.min(numberOfFramesPerGame, getFrameListSize()); frameNumber++) {
-            System.out.println(frameNumber);
             if (frameList.get(frameNumber) instanceof SpareFrame) {
                 ((SpareFrame) frameList.get(frameNumber)).setNextFrame(frameList.get(frameNumber + 1));
             }
             if (frameList.get(frameNumber) instanceof StrikeFrame) {
                 ((StrikeFrame) frameList.get(frameNumber)).setVeryNextFrame(frameList.get(frameNumber + 2));
             }
-        }
-    }
-
-    public int getGameScore() {
-        linkFrames();
-        int totalScore = 0;
-        if (getFrameListSize() > numberOfFramesPerGame) {
-            frameList.subList(numberOfFramesPerGame, getFrameListSize()).clear();
-        }
-        for (Frame frame : frameList) {
-            totalScore += frame.getFinalScore();
+            totalScore += frameList.get(frameNumber).getFinalScore();
         }
         return totalScore;
     }
