@@ -5,8 +5,6 @@ public class BowlingGame {
     private final ArrayList<Frame> frameList;
     private final FrameFactory frameFactory;
 
-    private final int numberOfFramesPerGame = 10;
-
     public BowlingGame() {
         frameList = new ArrayList<>();
         frameFactory = new FrameFactory();
@@ -38,8 +36,8 @@ public class BowlingGame {
             }
         }
 
-        for (int frameNumber = 0; frameNumber * 2 + 1 < throwValues.length; frameNumber++) {
-            addFrame(throwValues[frameNumber * 2], throwValues[frameNumber * 2 + 1]);
+        for (int frameIndex = 0; frameIndex * 2 + 1 < throwValues.length; frameIndex++) {
+            addFrame(throwValues[frameIndex * 2], throwValues[frameIndex * 2 + 1]);
         }
         if (throwValues.length % 2 == 1) {
             addFrame(throwValues[throwValues.length - 1], 0);
@@ -51,21 +49,31 @@ public class BowlingGame {
     }
 
     public int getGameScore() {
-        addFrame(0, 0);
+        int numberOfFramesPerGame = 10;
         int totalScore = 0;
-        for (int frameNumber = 0; frameNumber < Math.min(numberOfFramesPerGame, getFrameListSize()); frameNumber++) {
-            if (frameList.get(frameNumber) instanceof SpareFrame) {
-                ((SpareFrame) frameList.get(frameNumber)).setNextFrame(frameList.get(frameNumber + 1));
+        Frame currentFrame;
+        for (int frameIndex = 0; frameIndex < Math.min(numberOfFramesPerGame, getFrameListSize()); frameIndex++) {
+            currentFrame = getFrameByIndex(frameIndex);
+            if (currentFrame instanceof SpareFrame) {
+                ((SpareFrame) currentFrame).setNextFrame(getFrameByIndex(frameIndex + 1));
             }
-            if (frameList.get(frameNumber) instanceof StrikeFrame) {
-                ((StrikeFrame) frameList.get(frameNumber)).setVeryNextFrame(frameList.get(frameNumber + 2));
+            if (currentFrame instanceof StrikeFrame) {
+                ((StrikeFrame) currentFrame).setVeryNextFrame(getFrameByIndex(frameIndex + 2));
             }
-            totalScore += frameList.get(frameNumber).getFinalScore();
+            totalScore += currentFrame.getFinalScore();
         }
         return totalScore;
     }
 
     public int getFrameListSize() {
         return frameList.size();
+    }
+
+    private Frame getFrameByIndex(int frameIndex) {
+        if (frameIndex < getFrameListSize()) {
+            return frameList.get(frameIndex);
+        } else {
+            return frameFactory.getFrame(0, 0);
+        }
     }
 }
