@@ -1,8 +1,8 @@
 public interface Frame {
 
-    public int getFirstThrow();
+    int getFirstThrow();
 
-    public int getBaseScore();
+    int getBaseScore();
 
-    public int getFinalScore();
+    int getFinalScore();
 }
