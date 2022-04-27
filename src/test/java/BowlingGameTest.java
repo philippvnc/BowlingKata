@@ -24,32 +24,6 @@ class BowlingGameTest {
         Assertions.assertEquals(3, bowlingGame.getFrameListSize());
     }
 
-    @Test
-    void shouldDetectLatestAddedFrameSpare() {
-        Assertions.assertFalse(bowlingGame.isLatestAddedFrameSpare());
-        bowlingGame.addFrame(8, 2);
-        Assertions.assertTrue(bowlingGame.isLatestAddedFrameSpare());
-        bowlingGame.addFrame(1, 0);
-        Assertions.assertFalse(bowlingGame.isLatestAddedFrameSpare());
-        bowlingGame.addFrame(4, 6);
-        Assertions.assertTrue(bowlingGame.isLatestAddedFrameSpare());
-        bowlingGame.addFrame(10, 0);
-        Assertions.assertTrue(bowlingGame.isLatestAddedFrameSpare());
-    }
-
-    @Test
-    void shouldDetectSecondLatestAddedFrameStrike() {
-        Assertions.assertFalse(bowlingGame.isSecondLatestAddedFrameStrike());
-        bowlingGame.addFrame(8, 2);
-        Assertions.assertFalse(bowlingGame.isSecondLatestAddedFrameStrike());
-        bowlingGame.addFrame(10, 0);
-        Assertions.assertFalse(bowlingGame.isSecondLatestAddedFrameStrike());
-        bowlingGame.addFrame(4, 6);
-        Assertions.assertTrue(bowlingGame.isSecondLatestAddedFrameStrike());
-        bowlingGame.addFrame(10, 0);
-        Assertions.assertFalse(bowlingGame.isSecondLatestAddedFrameStrike());
-    }
-
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3, 4})
     public void openFramesAllSameThrows(int throwValue) {

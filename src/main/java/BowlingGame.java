@@ -47,33 +47,24 @@ public class BowlingGame {
     }
 
     public void addFrame(int firstThrow, int secondThrow) {
-        Frame frameToAdd = frameFactory.getFrame(firstThrow, secondThrow);
-        if (isLatestAddedFrameSpare()) {
-            ((SpareFrame) frameList.get(getFrameListSize() - 1)).setNextFrame(frameToAdd);
-        }
-        if (isSecondLatestAddedFrameStrike()) {
-            ((StrikeFrame) frameList.get(getFrameListSize() - 2)).setVeryNextFrame(frameToAdd);
-        }
-        frameList.add(frameToAdd);
+        frameList.add(frameFactory.getFrame(firstThrow, secondThrow));
     }
 
-    public boolean isLatestAddedFrameSpare() {
-        if (frameList.size() == 0) {
-            return false;
-        } else {
-            return (frameList.get(getFrameListSize() - 1) instanceof SpareFrame);
-        }
-    }
-
-    public boolean isSecondLatestAddedFrameStrike() {
-        if (frameList.size() <= 1) {
-            return false;
-        } else {
-            return (frameList.get(getFrameListSize() - 2) instanceof StrikeFrame);
+    public void linkFrames() {
+        addFrame(0, 0);
+        for (int frameNumber = 0; frameNumber < Math.min(numberOfFramesPerGame, getFrameListSize()); frameNumber++) {
+            System.out.println(frameNumber);
+            if (frameList.get(frameNumber) instanceof SpareFrame) {
+                ((SpareFrame) frameList.get(frameNumber)).setNextFrame(frameList.get(frameNumber + 1));
+            }
+            if (frameList.get(frameNumber) instanceof StrikeFrame) {
+                ((StrikeFrame) frameList.get(frameNumber)).setVeryNextFrame(frameList.get(frameNumber + 2));
+            }
         }
     }
 
     public int getGameScore() {
+        linkFrames();
         int totalScore = 0;
         if (getFrameListSize() > numberOfFramesPerGame) {
             frameList.subList(numberOfFramesPerGame, getFrameListSize()).clear();
