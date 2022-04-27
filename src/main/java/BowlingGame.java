@@ -5,6 +5,8 @@ public class BowlingGame {
     private final ArrayList<Frame> frameList;
     private final FrameFactory frameFactory;
 
+    private final int numberOfFramesPerGame = 10;
+
     public BowlingGame() {
         frameList = new ArrayList<>();
         frameFactory = new FrameFactory();
@@ -73,8 +75,8 @@ public class BowlingGame {
 
     public int getGameScore() {
         int totalScore = 0;
-        if (getFrameListSize() > 10) {
-            frameList.subList(10, getFrameListSize()).clear();
+        if (getFrameListSize() > numberOfFramesPerGame) {
+            frameList.subList(numberOfFramesPerGame, getFrameListSize()).clear();
         }
         for (Frame frame : frameList) {
             totalScore += frame.getFinalScore();
