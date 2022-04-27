@@ -45,7 +45,11 @@ public class BowlingGame {
     }
 
     public void addFrame(int firstThrow, int secondThrow) {
-        frameList.add(frameFactory.getFrame(firstThrow, secondThrow));
+        addFrame(frameFactory.getFrame(firstThrow, secondThrow));
+    }
+
+    public void addFrame(Frame frame) {
+        frameList.add(frame);
     }
 
     public int getGameScore() {
@@ -69,7 +73,7 @@ public class BowlingGame {
         return frameList.size();
     }
 
-    private Frame getFrameByIndex(int frameIndex) {
+    public Frame getFrameByIndex(int frameIndex) {
         if (frameIndex < getFrameListSize()) {
             return frameList.get(frameIndex);
         } else {
