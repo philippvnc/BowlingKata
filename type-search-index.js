@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"BowlingGame"},{"p":"<Unnamed>","l":"Frame"},{"p":"<Unnamed>","l":"FrameFactory"},{"p":"<Unnamed>","l":"OpenFrame"},{"p":"<Unnamed>","l":"SpareFrame"},{"p":"<Unnamed>","l":"StrikeFrame"}];updateSearchResults();
