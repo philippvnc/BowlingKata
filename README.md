@@ -5,7 +5,7 @@ http://codingdojo.org/kata/Bowling/
 
 ## Documentation
 
-Javadocs can be found at https://philippvnc.github.io/BowlingKata/package-summary.html
+Javadocs can be found at https://philippvnc.github.io/BowlingKata/allclasses-index.html
 
 ## Class Diagram
 
