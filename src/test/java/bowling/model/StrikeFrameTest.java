@@ -1,4 +1,4 @@
-package model;
+package bowling.model;
 
 import bowling.model.OpenFrame;
 import bowling.model.StrikeFrame;
