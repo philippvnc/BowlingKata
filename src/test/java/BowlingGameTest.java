@@ -96,14 +96,6 @@ class BowlingGameTest {
     }
 
     @Test
-    public void missFrames() {
-        for (int frameIndex = 0; frameIndex < 10; frameIndex++) {
-            bowlingGame.addFrame(0, 0);
-        }
-        Assertions.assertEquals(0, bowlingGame.getGameScore());
-    }
-
-    @Test
     public void mixedFramesOne() {
         bowlingGame.addFrame(0, 0);
         bowlingGame.addFrame(1, 2);
