@@ -6,3 +6,7 @@ http://codingdojo.org/kata/Bowling/
 ## Documentation
 
 Javadocs can be found at https://philippvnc.github.io/BowlingKata/package-summary.html
+
+## Class Diagram
+
+![alt text](./img/class_diagram.png)
