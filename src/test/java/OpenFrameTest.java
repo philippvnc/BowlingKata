@@ -12,6 +12,11 @@ class OpenFrameTest {
     }
 
     @Test
+    void shouldGetFirstThrow() {
+        Assertions.assertEquals(4, openFrame.getFirstThrow());
+    }
+
+    @Test
     void shouldGetBaseScore() {
         Assertions.assertEquals(9, openFrame.getBaseScore());
     }
