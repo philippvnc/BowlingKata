@@ -1,7 +1,5 @@
 package bowling.model;
 
-import bowling.model.OpenFrame;
-import bowling.model.StrikeFrame;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

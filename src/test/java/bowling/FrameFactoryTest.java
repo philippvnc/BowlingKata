@@ -1,6 +1,5 @@
 package bowling;
 
-import bowling.FrameFactory;
 import bowling.model.Frame;
 import bowling.model.OpenFrame;
 import bowling.model.SpareFrame;
