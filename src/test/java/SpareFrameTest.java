@@ -14,8 +14,8 @@ class SpareFrameTest {
     @Test
     void shouldGetFinalScoreFollowUpStrike() {
         SpareFrame spareFrame = new SpareFrame(2, 8);
-        StrikeFrame openFrame = new StrikeFrame(10, 0);
-        spareFrame.setNextFrame(openFrame);
+        StrikeFrame strikeFrame = new StrikeFrame(10, 0);
+        spareFrame.setNextFrame(strikeFrame);
         Assertions.assertEquals(20, spareFrame.getFinalScore());
     }
 }
