@@ -12,12 +12,12 @@ public class BowlingGame {
      */
     private final ArrayList<Frame> frameList;
     /**
-     * this frame factory is used to generate new frames for this bowling game.
+     * This frame factory is used to generate new frames for this bowling game.
      */
     private final FrameFactory frameFactory;
 
     /**
-     * class constructor without arguments to create empty bowling game object. Will initialize
+     * Class constructor without arguments to create empty bowling game object. Will initialize
      * {@link BowlingGame#frameList} and {@link BowlingGame#frameFactory}, but not add any frames.
      */
     public BowlingGame() {
@@ -26,7 +26,7 @@ public class BowlingGame {
     }
 
     /**
-     * class constructor with game definition argument to create a bowling game object with frames.
+     * Class constructor with game definition argument to create a bowling game object with frames.
      * Will call overloaded class constructor without arguments for initialization and then add frames based on
      * parsing of game definition string.
      * @param gameDefinition string defining the frames, that will be parsed
@@ -37,7 +37,7 @@ public class BowlingGame {
     }
 
     /**
-     * executable main method for bowling game class. Takes a game definition string as input,
+     * Executable main method for bowling game class. Takes a game definition string as input,
      * creates a bowling game object based on the input, then calculates and prints the final game score
      * to standard out.
      * @param args input string array parameter, string at index 0 is used as game definition string
@@ -49,31 +49,30 @@ public class BowlingGame {
 
 
     /**
-     * this method parses a given game definition string and adds frames accordingly.
-     * this method requires a string with the following constraints:
-     *
-     * - strike frames are represented as 'X'
-     * - second throws of spare frames are represented as '/'
+     * This method parses a given game definition string and adds frames accordingly.
+     * This method requires a string with the following constraints:
+     * <p>
+     * - strike frames are represented as 'X' <br>
+     * - second throws of spare frames are represented as '/' <br>
      * - all remaining throws are represented as the number of pins thrown
-     *
-     * optional string format:
-     *
-     * - the frames and or throws can be separated with whitespaces ' '
+     * <p>
+     * Optional string format:
+     * <p>
+     * - the frames and or throws can be separated with whitespaces ' ' <br>
      * - zero pin throws aka missed can be represented as '-'
-     *
-     * example game definition strings:
-     *
-     * - "X X X X X X X X X X X X"
-     * - "9- 9- 9- 9- 9- 9- 9- 9- 9- 9-"
-     * - "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5"
-     * - "-- -- -- -- -- -- -- -- -- --"
+     * <p>
+     * Example game definition strings:
+     * <p>
+     * - "X X X X X X X X X X X X" <br>
+     * - "9- 9- 9- 9- 9- 9- 9- 9- 9- 9-" <br>
+     * - "5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5" <br>
+     * - "-- -- -- -- -- -- -- -- -- --" <br>
      * - "X 5/ X 9/ 32 4/ X 9/ 02 8/9"
-     *
-     * this method will not check for correct number of frames in the game definition.
+     * <p>
+     * This method will not check for correct number of frames in the game definition.
      * first the individual throws are separated and the literals in the string are replaced with numbers.
      * then the strings are parsed as ints and stored in an array and the second throw of each spare frame is
      * calculated based on the first throw.
-     *
      * finally, the frames are added in pairs of throws. For uneven numbers of throws caused by bonus throws, an empty
      * throw is added to make a complete frame.
      *
@@ -109,7 +108,7 @@ public class BowlingGame {
     }
 
     /**
-     * this method creates and adds a new {@link Frame} object, based on parameters firstThrow and secondThrow
+     * This method creates and adds a new {@link Frame} object, based on parameters firstThrow and secondThrow
      * @param firstThrow  the value of the first throw of the frame
      * @param secondThrow the value of the second throw of the frame
      */
@@ -118,7 +117,7 @@ public class BowlingGame {
     }
 
     /**
-     * this method adds a given {@link Frame} object to the {@link BowlingGame#frameList} of this {@link BowlingGame}
+     * This method adds a given {@link Frame} object to the {@link BowlingGame#frameList} of this {@link BowlingGame}
      * object.
      * @param frame the frame that will be added
      */
@@ -127,7 +126,7 @@ public class BowlingGame {
     }
 
     /**
-     * this method calculates and returns the final game score based on frames in {@link BowlingGame#frameList}.
+     * This method calculates and returns the final game score based on frames in {@link BowlingGame#frameList}.
      * Loops over all non bonus frames in {@link BowlingGame#frameList}. For each frame the needed frame references
      * are assigned. For spare frames the consecutive frame is assigned, for strike frames the two consecutive frames
      * are assigned. (Note the following code works expected because of the class heritage of strike frame and
@@ -154,7 +153,7 @@ public class BowlingGame {
     }
 
     /**
-     * this method returns the current size of the {@link BowlingGame#frameList} aka the current number of frames
+     * This method returns the current size of the {@link BowlingGame#frameList} aka the current number of frames
      * that have been added to the {@link BowlingGame}.
      * @return current size of frame list
      */
@@ -163,7 +162,7 @@ public class BowlingGame {
     }
 
     /**
-     * this method safely retrieves frames from {@link BowlingGame#frameList}.
+     * This method safely retrieves frames from {@link BowlingGame#frameList}.
      * Will return the frame object at specified frame index for indices in range.
      * Will return a new frame object with zero throws for indices outside the range.
      * @param frameIndex the index of the frame that should be retrieved
