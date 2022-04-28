@@ -1,5 +1,5 @@
 /**
- * This interface class defines common methods for Frame objects.
+ * This interface defines common methods for Frame objects.
  */
 public interface Frame {
 
