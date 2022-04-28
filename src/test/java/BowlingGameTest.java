@@ -42,6 +42,7 @@ class BowlingGameTest {
         bowlingGame.addFrame(testFrame1);
         Frame testFrame2 = new OpenFrame(0 ,0);
         bowlingGame.addFrame(testFrame2);
+        Assertions.assertTrue(bowlingGame.getFrameByIndex(-1) instanceof OpenFrame);
         Assertions.assertTrue(bowlingGame.getFrameByIndex(2) instanceof OpenFrame);
         Assertions.assertTrue(bowlingGame.getFrameByIndex(10) instanceof OpenFrame);
     }
