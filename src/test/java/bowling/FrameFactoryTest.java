@@ -1,3 +1,10 @@
+package bowling;
+
+import bowling.FrameFactory;
+import bowling.model.Frame;
+import bowling.model.OpenFrame;
+import bowling.model.SpareFrame;
+import bowling.model.StrikeFrame;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

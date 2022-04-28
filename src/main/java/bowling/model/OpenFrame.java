@@ -1,3 +1,5 @@
+package bowling.model;
+
 /**
  * This class implements the interface frame as an open frame.
  */

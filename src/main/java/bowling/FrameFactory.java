@@ -1,3 +1,10 @@
+package bowling;
+
+import bowling.model.Frame;
+import bowling.model.OpenFrame;
+import bowling.model.SpareFrame;
+import bowling.model.StrikeFrame;
+
 /**
  * This class defines a factory class for frame objects, and should be used to generate different frames.
  */

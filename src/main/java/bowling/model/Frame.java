@@ -1,5 +1,7 @@
+package bowling.model;
+
 /**
- * This interface defines common methods for Frame objects.
+ * This interface defines common methods for bowling.model.Frame objects.
  */
 public interface Frame {
 

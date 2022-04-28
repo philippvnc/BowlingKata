@@ -1,3 +1,9 @@
+package bowling;
+
+import bowling.model.Frame;
+import bowling.model.SpareFrame;
+import bowling.model.StrikeFrame;
+
 import java.util.ArrayList;
 
 /**

@@ -1,3 +1,5 @@
+package bowling.model;
+
 /**
  * This class extends {@link OpenFrame} und thus also implements the interface {@link Frame}.
  * A {@link SpareFrame} object differs from {@link OpenFrame} in regard to final score calculation
