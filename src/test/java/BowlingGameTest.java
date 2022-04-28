@@ -87,11 +87,9 @@ class BowlingGameTest {
 
     @Test
     public void strikeFrames() {
-        for (int frameIndex = 0; frameIndex < 10; frameIndex++) {
+        for (int frameIndex = 0; frameIndex < 12; frameIndex++) {
             bowlingGame.addFrame(10, 0);
         }
-        bowlingGame.addFrame(10, 0);
-        bowlingGame.addFrame(10, 0);
         Assertions.assertEquals(300, bowlingGame.getGameScore());
     }
 
